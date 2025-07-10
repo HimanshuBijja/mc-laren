@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+@theme {
+    --color-orange-1: hsl(var(--orange-1));
+    --color-blue-1: hsl(var(--blue-1));
+    --color-yellow-1: hsl(var(--yellow-1));
+    --color-orange-2: hsl(var(--orange-2));
+    --color-blue-2: hsl(var(--blue-2));
+    --color-yellow-2: hsl(var(--yellow-2));
+
+    --font-anton: "Anton";
+    --font-inter: "Inter";
+
+    --spacing-circle: 30px;
+    --spacing-10px: 10px;
+
+
+}
+
+@layer base {
+    :root {
+        --orange-1: 22, 82%, 47%;
+        --blue-1: 201, 78%, 42%;
+        --yellow-1: 49, 77%, 37%;
+        --orange-2: 32, 100%, 65%;
+        --blue-2: 196, 97%, 63%;
+        --yellow-2: 49, 96%, 69%;
+    }
+
+    body {
+        @apply bg-orange-1;
+    }
+}
+/* @layer components {
+
+  .orange{
+
+  }
+} */
