@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Check } from "lucide-react";
 import NavBar from "@/components/NavBar";
+import { motion } from "motion/react";
+import { Footer } from "@/components/Footer";
 
 type ColorKey = "orange" | "blue" | "yellow";
+
 
 export default function Home() {
     const colors: ColorKey[] = ["orange", "blue", "yellow"];
@@ -15,16 +18,56 @@ export default function Home() {
             <NavBar />
             <div className="flex flex-col justify-center items-center h-screen">
                 <div className="w-full flex justify-center relative">
-                    <div className="my-20 mx-30">
-                        <div className="relative w-165 h-47 flex justify-center transition-all duration-500 ">
-                            <Image
-                                src={`Mclaren-${backColor}.svg`}
-                                alt={`Mclaren-${backColor}`}
-                                fill
-                                className="object-contain"
-                            />
-                            <div className="absolute -top-16 -z-50 font-anton text-[165px] text-white  h-fit w-fit leading-none">
-                                MCLAREN
+                    <div className="m-20 px-25 ">
+                        <div className="relative w-215 h-48 flex justify-center transition-all duration-500  ">
+                            <div className=" overflow-hidden w-full flex justify-center">
+                                <motion.div
+                                    key={backColor}
+                                    initial={{ x: 700, y: 0 }}
+                                    animate={{
+                                        x: 0,
+                                        y: 0,
+                                    }}
+                                    exit={{ x: -700, y: 0 }}
+                                    transition={{
+                                        duration: 0.4,
+                                        type: "spring",
+                                        stiffness: 44,
+                                        damping: 10,
+                                    }}
+                                >
+                                    <Image
+                                        src={`Mclaren-${backColor}.svg`}
+                                        alt={`Mclaren-${backColor}`}
+                                        width={658}
+                                        height={188}
+                                    />
+                                </motion.div>
+                            </div>
+                            <div className="absolute -top-16 -z-50 font-anton text-[165px] text-white  h-fit w-fit leading-none  overflow-hidden">
+                                <motion.div
+                                    key={backColor}
+                                    initial={{
+                                        y: 150,
+                                        opacity: 1,
+                                    }}
+                                    animate={{
+                                        y: 0,
+                                        opacity: 1,
+                                    }}
+                                    exit={{
+                                        y: 150,
+                                        opacity: 1,
+                                    }}
+                                    transition={{
+                                        duration: 0.4,
+                                        type: "spring",
+                                        stiffness: 44,
+                                        damping: 10,
+                                    }}
+                                >
+                                    MCLAREN
+                                </motion.div>
                             </div>
                             <Platform color={backColor} backColor={backColor} />
                             <ChangeColor
@@ -119,51 +162,3 @@ function ChangeColor({
     );
 }
 
-function Footer() {
-    return (
-        <>
-            <div className="absolute -bottom-12 translate-y-1/2 ">
-                <div className="flex flex-row gap-12 text-white pt-[5vh]">
-                    <div className="flex flex-col gap-5">
-                        <div className="font-inter font-bold text-3xl">
-                            McLaren GTS
-                        </div>
-                        <div className="font-inter font-[800] text-xs bg-white outline-6 outline-white/32 rounded-[40px] backdrop-blur-md px-5 py-3 text-black w-fit leading-none">
-                            ORDER NOW
-                        </div>
-                    </div>
-                    <div className="flex flex-row gap-4">
-                        <FooterStats heading="3.2 Sec" subHeading="0-100 mph" />
-                        <FooterStats heading="210 mph" subHeading="Top Speed" />
-                        <FooterStats heading="630 HP" subHeading="Max Power" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <div className="font-inter font-normal text-[14px]">
-                            The McLaren GTS combines <br />
-                            speed, luxury, and comfort <br />
-                            for unmatched driving thrill.
-                        </div>
-                        <div className="font-inter font-extrabold text-[18px]">
-                            $220,000
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
-}
-
-function FooterStats({
-    heading,
-    subHeading,
-}: {
-    heading: string;
-    subHeading: string;
-}) {
-    return (
-        <div className="h-22 w-35 flex flex-col justify-center items-center bg-white/24 border-white/32 border-2 rounded-3xl backdrop-blur-md">
-            <div className="font-inter font-bold text-[22px]">{heading}</div>
-            <div className="font-inter font-semibold text-xs">{subHeading}</div>
-        </div>
-    );
-}
