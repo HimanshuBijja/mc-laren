@@ -29,6 +29,7 @@
 
     body {
         @apply bg-orange-1;
+         transition: all 0.5s ease;
     }
 }
 /* @layer components {
