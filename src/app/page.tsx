@@ -16,7 +16,7 @@ export default function Home() {
             <div className="flex flex-col justify-center items-center h-screen">
                 <div className="w-full flex justify-center relative">
                     <div className="my-20 mx-30">
-                        <div className="relative w-165 h-47 flex justify-center ">
+                        <div className="relative w-165 h-47 flex justify-center transition-all duration-500 ">
                             <Image
                                 src={`Mclaren-${backColor}.svg`}
                                 alt={`Mclaren-${backColor}`}
