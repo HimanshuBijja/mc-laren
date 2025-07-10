@@ -14,26 +14,28 @@ export default function Home() {
         <>
             <NavBar />
             <div className="flex flex-col justify-center items-center h-screen">
-                <div className="my-20 mx-30">
-                    <div className="relative w-165 h-47 flex justify-center ">
-                        <Image
-                            src={`Mclaren-${backColor}.svg`}
-                            alt={`Mclaren-${backColor}`}
-                            fill
-                            className="object-contain"
-                        />
-                        <div className="absolute -top-16 -z-50 font-anton text-[165px] text-white  h-fit w-fit leading-none">
-                            MCLAREN
+                <div className="w-full flex justify-center relative">
+                    <div className="my-20 mx-30">
+                        <div className="relative w-165 h-47 flex justify-center ">
+                            <Image
+                                src={`Mclaren-${backColor}.svg`}
+                                alt={`Mclaren-${backColor}`}
+                                fill
+                                className="object-contain"
+                            />
+                            <div className="absolute -top-16 -z-50 font-anton text-[165px] text-white  h-fit w-fit leading-none">
+                                MCLAREN
+                            </div>
+                            <Platform color={backColor} backColor={backColor} />
+                            <ChangeColor
+                                colors={colors}
+                                setBackColor={setBackColor}
+                                backColor={backColor}
+                            />
                         </div>
-                        <Platform color={backColor} backColor={backColor} />
-                        <ChangeColor
-                            colors={colors}
-                            setBackColor={setBackColor}
-                            backColor={backColor}
-                        />
                     </div>
+                    <Footer />
                 </div>
-                <Footer />
             </div>
         </>
     );
@@ -120,28 +122,30 @@ function ChangeColor({
 function Footer() {
     return (
         <>
-            <div className="flex flex-row gap-12 text-white">
-                <div className="flex flex-col gap-5">
-                    <div className="font-inter font-bold text-3xl">
-                        McLaren GTS
+            <div className="absolute -bottom-12 translate-y-1/2 ">
+                <div className="flex flex-row gap-12 text-white pt-[5vh]">
+                    <div className="flex flex-col gap-5">
+                        <div className="font-inter font-bold text-3xl">
+                            McLaren GTS
+                        </div>
+                        <div className="font-inter font-[800] text-xs bg-white outline-6 outline-white/32 rounded-[40px] backdrop-blur-md px-5 py-3 text-black w-fit leading-none">
+                            ORDER NOW
+                        </div>
                     </div>
-                    <div className="font-inter font-semibold text-xs">
-                        Order Now
+                    <div className="flex flex-row gap-4">
+                        <FooterStats heading="3.2 Sec" subHeading="0-100 mph" />
+                        <FooterStats heading="210 mph" subHeading="Top Speed" />
+                        <FooterStats heading="630 HP" subHeading="Max Power" />
                     </div>
-                </div>
-                <div className="flex flex-row gap-4">
-                    <FooterStats heading="3.2 Sec" subHeading="0-100 mph" />
-                    <FooterStats heading="210 mph" subHeading="Top Speed" />
-                    <FooterStats heading="630 HP" subHeading="Max Power" />
-                </div>
-                <div className="flex flex-col gap-1">
-                    <div className="font-inter font-normal text-[14px]">
-                        The McLaren GTS combines <br />
-                        speed, luxury, and comfort <br />
-                        for unmatched driving thrill.
-                    </div>
-                    <div className="font-inter font-extrabold text-[18px]">
-                        $220,000
+                    <div className="flex flex-col gap-1">
+                        <div className="font-inter font-normal text-[14px]">
+                            The McLaren GTS combines <br />
+                            speed, luxury, and comfort <br />
+                            for unmatched driving thrill.
+                        </div>
+                        <div className="font-inter font-extrabold text-[18px]">
+                            $220,000
+                        </div>
                     </div>
                 </div>
             </div>
